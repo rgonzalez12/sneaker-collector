@@ -15,16 +15,16 @@ class ApplicationController < Sinatra::Base
   
   helpers do
 
-   def logged_in?
-     !!current_user
-   end
-
    def current_user
      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
    end
    
-   def login(username, password)
-    user = User.find_by(:username => username) 
+  def logged_in?
+    !!current_user
+  end
+   
+   def login(email_address, password)
+    user = User.find_by(:email_address => email_address) 
      if user && user.authenticate(password)
       session[:user_id] = user.id
      else
