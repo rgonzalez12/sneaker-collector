@@ -1,17 +1,25 @@
 class UserController < ApplicationController
   
+  get '/user/:id/home' do
+    erb :'/users/home'
+  end
+  
   get '/registrations/new' do
-    erb :'/users/signup'
+    if !logged_in?
+      erb :'/users/signup'
+    else
+      redirect to '/user/:id/home'
+   end
   end
   
   post '/registrations/new' do
     if params[:first_name] == "" || params[:last_name] == "" || params[:email_address] == "" || params[:password] == ""
-      redirect '/signup'
+      redirect '/registrations/new'
     else
-      @user = User.new(:first_name => params[:first_name], :email_address => params[:email_address], :password => params[:password])
+      @user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :email_address => params[:email_address], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect ''
+      redirect '/user/:id/home'
     end
   end
   
@@ -19,14 +27,14 @@ class UserController < ApplicationController
     if !logged_in?
      erb :'/users/login'
     else
-     redirect '/users/:id/home'
+     redirect '/user/:id/home'
     end
   end
   
   post '/login' do
     login(params[:email_address], params[:password])
     current_user
-    redirect '/users/:id/home'
+    redirect '/user/:id/home'
   end
   
   post '/logout' do
