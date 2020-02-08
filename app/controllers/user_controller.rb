@@ -1,7 +1,7 @@
 class UserController < ApplicationController
   
   get '/registrations/new' do
-    
+    erb :'/users/signup'
   end
   
   post '/registrations/new' do
