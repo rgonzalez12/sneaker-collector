@@ -1,6 +1,7 @@
 class UserController < ApplicationController
   
   get '/user/:id/home' do
+    @user = User.find_by_id(params[:user_id])
     erb :'/users/home'
   end
   
