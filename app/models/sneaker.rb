@@ -1,3 +1,4 @@
 class Sneaker < ActiveRecord::Base
-  has_and_belongs_to_many :user_id
+  belongs_to :portfolio
+  has_many :users
 end
