@@ -1,6 +1,6 @@
 class PortfolioController < ApplicationController
   
-  get '/portfolio/leaderboard' do
+  get '/leaderboard' do
  
   end
   

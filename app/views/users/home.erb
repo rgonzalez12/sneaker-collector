@@ -4,9 +4,9 @@
   <h1>Welcome, <%=current_user.first_name%>!</h1><br>
   
 <div class="topnav">
-  <a class="active" href="/user/:id/home">Home</a><br><br>
+  <a class="active" href="/user/home/:id">Home</a><br><br>
   <a href="/portfolio/:id">My Portfolio</a><br><br>
-  <a href="/portfolio/leaderboard">Leaderboard</a><br><br>
+  <a href="/leaderboard">Leaderboard</a><br><br>
   <form action="/logout" method="post">
   <button type="submit" value="submit" style="width:50px;height:50px;">Logout</button>
 </form>
