@@ -13,7 +13,8 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-image: url("https://images.wallpaperscraft.com/image/foot_sneaker_ladder_121681_1920x1080.jpg");
+    background-size: cover;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
