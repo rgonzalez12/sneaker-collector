@@ -5,6 +5,6 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 use Rack::MethodOverride
-use SneakerController
+use PortfolioController
 use UserController
 run ApplicationController

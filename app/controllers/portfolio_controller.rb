@@ -1,4 +1,4 @@
-class SneakerController < ApplicationController
+class PortfolioController < ApplicationController
   
   get '/portfolio/leaderboard' do
  
