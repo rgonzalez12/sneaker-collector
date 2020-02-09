@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   
-  get '/user/:id/home' do
+  get '/user/home/:id' do
     @user = User.find_by_id(session[:user_id])
     erb :'/users/home'
   end
