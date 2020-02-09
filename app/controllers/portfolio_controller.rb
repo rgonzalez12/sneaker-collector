@@ -1,11 +1,15 @@
 class PortfolioController < ApplicationController
   
   get '/leaderboard' do
- 
+    if !logged_in?
+      redirect '/login'
+    else
+      erb :'/sneakers/leaderboard'
+    end
   end
   
   get '/portfolio/:id' do
-    
+  
   end
   
   get '/portfolio/:id/new_sneaker' do
