@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_084554) do
+ActiveRecord::Schema.define(version: 2020_02_10_225916) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_084554) do
     t.integer "portfolio_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
 end

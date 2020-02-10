@@ -22,9 +22,12 @@ class UserController < ApplicationController
       redirect '/registrations/new'
     else
       @user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :email_address => params[:email_address], :password => params[:password])
-      @user.save
-      session[:user_id] = @user.id
-      redirect "/user/home/#{current_user.id}"
+      if @user.save
+        session[:user_id] = @user.id
+        redirect "/user/home/#{current_user.id}"
+      else
+        redirect '/registrations/new'
+      end
     end
   end
   

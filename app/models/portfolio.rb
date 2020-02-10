@@ -1,4 +1,4 @@
 class Portfolio < ActiveRecord::Base
-  has_many :sneakers
-  has_one :user, through: :sneakers
+  has_and_belongs_to_many :sneakers
+  has_one :user
 end

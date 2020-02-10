@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   has_many :sneakers, through: :portfolio
   has_secure_password
   validates :password, format: PASSWORD_REQ
+  validates :email_address, uniqueness: true
 end
