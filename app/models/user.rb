@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   /x
   
   has_one :portfolio
-  has_many :sneakers, through :portfolio
+  has_many :sneakers, through: :portfolio
   has_secure_password
   validates :password, format: PASSWORD_REQ
 end
