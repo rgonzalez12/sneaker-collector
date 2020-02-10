@@ -13,6 +13,7 @@ class PortfolioController < ApplicationController
   end
   
   get '/portfolio/:id/new_sneaker' do
+    erb :'/sneakers/create_sneaker'
  
   end
   
