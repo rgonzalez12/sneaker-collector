@@ -1,4 +1,3 @@
 class Sneaker < ActiveRecord::Base
-  belongs_to :portfolio
-  belongs_to :user
+  has_many :users, through: :portfolio
 end

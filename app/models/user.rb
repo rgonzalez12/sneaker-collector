@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   (?=.*[[:^alnum:]])
   /x
   
-  has_many :sneakers
-  has_one :portfolio, through: :sneakers
+  has_one :portfolio
+  has_many :sneakers, through :portfolio
   has_secure_password
   validates :password, format: PASSWORD_REQ
 end
