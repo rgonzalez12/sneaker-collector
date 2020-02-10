@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_225916) do
+ActiveRecord::Schema.define(version: 2020_02_10_234204) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id"
+  end
+
+  create_table "portfolios_sneakers", force: :cascade do |t|
     t.integer "sneaker_id"
-    t.integer "total_value"
+    t.integer "portfolio_id"
   end
 
   create_table "sneakers", force: :cascade do |t|
@@ -24,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_02_10_225916) do
     t.string "model"
     t.string "colorway"
     t.integer "est_value"
-    t.integer "portfolio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "condition"
@@ -36,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_02_10_225916) do
     t.string "last_name"
     t.text "email_address"
     t.string "password_digest"
-    t.integer "portfolio_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true

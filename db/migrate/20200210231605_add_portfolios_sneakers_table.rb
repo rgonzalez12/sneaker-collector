@@ -5,12 +5,8 @@ class AddPortfoliosSneakersTable < ActiveRecord::Migration[5.2]
       t.integer :portfolio_id
     end
     
-    change_table :sneakers do |t|
-      t.delete :portfolio_id
-    end
     
-    change_table :portfolios do |t|
-      t.delete :sneaker_id
-    end
+    remove_column :sneakers, :portfolio_id
+    remove_column :portfolios, :sneaker_id
   end
 end
