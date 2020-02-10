@@ -1,8 +1,12 @@
 class UserController < ApplicationController
   
   get '/user/home/:id' do
-    @user = User.find_by_id(params[:id])
-    erb :'/users/home'
+    if !logged_in?
+      redirect '/login'
+    else
+      @user = User.find_by_id(params[:id])
+      erb :'/users/home'
+    end
   end
   
   get '/registrations/new' do
