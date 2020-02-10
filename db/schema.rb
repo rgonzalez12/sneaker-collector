@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_100315) do
+ActiveRecord::Schema.define(version: 2020_02_10_012946) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_02_09_100315) do
     t.integer "portfolio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "condition"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_02_09_100315) do
     t.text "email_address"
     t.string "password_digest"
     t.integer "portfolio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
