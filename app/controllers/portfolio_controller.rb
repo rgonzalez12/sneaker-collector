@@ -16,7 +16,7 @@ class PortfolioController < ApplicationController
     erb :'/sneakers/create_sneaker'
   end
   
-  post '/portfolio/:id/new_sneaker' do
+  post '/portfolio/:id/:sneaker_id' do
     
   end
 
