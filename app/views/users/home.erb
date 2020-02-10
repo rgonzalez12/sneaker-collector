@@ -6,8 +6,9 @@
   
   <body>
   <h1>Welcome, <%=current_user.first_name%>!</h1><br>
+  <h2><%= Time.now.in_time_zone("Mountain Time (US & Canada)").strftime("%m/%d/%y %I:%M %p") %></h2>
   
-<div class="topnav">
+<div class="nav">
   
   <a class="active" href="/user/home/:id">Home</a><br><br>
   <a href="/portfolio/:id">My Portfolio</a><br><br>
