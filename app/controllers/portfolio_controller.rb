@@ -9,7 +9,11 @@ class PortfolioController < ApplicationController
   end
   
   get '/portfolio/:id' do
-    erb :'/sneakers/portfolio_list'
+    if session[:id] = current_user.id
+      erb :'/sneakers/portfolio_list'
+    else 
+      redirect "/portfolio/#{current_user.id}"
+    end
   end
   
   get '/portfolio/:id/new_sneaker' do
