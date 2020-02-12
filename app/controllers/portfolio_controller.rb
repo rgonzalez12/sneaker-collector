@@ -13,7 +13,7 @@ class PortfolioController < ApplicationController
       params[:id] == current_user.id
       erb :'/sneakers/portfolio_list'
     else 
-      redirect "/portfolio/#{current_user.id}"
+      redirect "/portfolio/#{current_user.portfolio.id}"
     end
   end
   
@@ -22,7 +22,15 @@ class PortfolioController < ApplicationController
   end
   
   post '/portfolio/:id/:sneaker_id' do
-    
+    @errors = []
+    sneaker = Sneaker.new(manufacturer: params[:manufacturer], size_us: params[:size_us], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
+    portfolio = Portfolio.find(params[:id])
+    portfolio.sneakers << sneaker
+    if portfolio.save
+      redirect "/portfolio/#{current_user.portfolio.id}"
+    else
+      @errors = sneaker.errors.full_messages
+    end
   end
 
   get '/portfolio/sneakers/:id/edit' do

@@ -35,12 +35,23 @@
       <th>Colorway</th>
       <th>Estimated Value</th>
       <th>Condition</th>
+      <th>Notes</th>
   <tr>
-    <!-- #all of the sneaker id's created with info according to table -->
+    <% current_user.portfolio.sneakers.each do |sneaker| %>
+
+   <%= sneaker.manufacturer %>
+   <%= sneaker.size_us %>
+   <%= sneaker.model %>
+   <%= sneaker.colorway %>
+   <%= sneaker.est_value %>
+   <%= sneaker.condition %>
+   <%= sneaker.notes %>
+
+<% end %>
   </tr> 
     </table>
 
-    <form action="/portfolio/:id/new_sneaker">
+    <form action="/portfolio/<%= current_user.portfolio.id %>/new_sneaker">
     <input type="submit" value="Add Sneaker"/>
 </form>
     

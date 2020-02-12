@@ -9,7 +9,7 @@
     
   <h1>Add Sneaker</h1>
   
-<form action="/portfolio/:id/new_sneaker" method="POST">
+<form action="/portfolio/<%= current_user.portfolio.id %>/new_sneaker" method="POST">
   Manufacturer:<br>
   <input type="text" name="manufacturer"><br><br>
   US Size:<br>
