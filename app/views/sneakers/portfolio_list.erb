@@ -29,6 +29,7 @@
         background-color: #f5f5f5;
       }
     </style>
+    <tr>
       <th>Manufacturer</th>
       <th>US Size</th>
       <th>Model</th>
@@ -36,19 +37,21 @@
       <th>Estimated Value</th>
       <th>Condition</th>
       <th>Notes</th>
-  <tr>
+    </tr>
+
     <% current_user.portfolio.sneakers.each do |sneaker| %>
-
-   <%= sneaker.manufacturer %>
-   <%= sneaker.size_us %>
-   <%= sneaker.model %>
-   <%= sneaker.colorway %>
-   <%= sneaker.est_value %>
-   <%= sneaker.condition %>
-   <%= sneaker.notes %>
-
+  <a href="/portfolio/sneakers/<%= current_user.portfolio.id %>/edit">
+<tr>
+   <td><%= sneaker.manufacturer %></td>
+   <td><%= sneaker.size_us %></td>
+   <td><%= sneaker.model %></td>
+   <td><%= sneaker.colorway %></td>
+   <td>$<%= sneaker.est_value %></td>
+   <td><%= sneaker.condition %></td>
+   <td><%= sneaker.notes %></td>
+</tr>
+</a>
 <% end %>
-  </tr> 
     </table>
 
     <form action="/portfolio/<%= current_user.portfolio.id %>/new_sneaker">

@@ -23,7 +23,7 @@ class PortfolioController < ApplicationController
   
   post '/portfolio/:id/:sneaker_id' do
     @errors = []
-    sneaker = Sneaker.new(manufacturer: params[:manufacturer], size_us: params[:size_us], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
+    sneaker = Sneaker.new(manufacturer: params[:manufacturer], size_us: params[:size_us], model: params[:model], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
     portfolio = Portfolio.find(params[:id])
     portfolio.sneakers << sneaker
     if portfolio.save
