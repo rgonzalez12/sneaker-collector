@@ -18,7 +18,12 @@ class PortfolioController < ApplicationController
   end
   
   get '/portfolio/:id/new_sneaker' do
-    erb :'/sneakers/create_sneaker'
+    if Portfolio.find(params[:id]).user_id == current_user.id
+      params[:id] == current_user.id
+      erb :'/sneakers/create_sneaker'
+    else
+      redirect "/portfolio/#{current_user.portfolio.id}/new_sneaker"
+    end
   end
   
   post '/portfolio/:id/:sneaker_id' do
@@ -42,7 +47,7 @@ class PortfolioController < ApplicationController
   end
 
   delete '/portfolio/sneakers/:id/delete' do
-    
+     
   end
   
 end

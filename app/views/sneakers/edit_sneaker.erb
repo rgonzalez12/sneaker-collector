@@ -6,7 +6,31 @@
   </head>
   
   <body>
+    <h1>Edit/Delete Sneaker</h1>
     
+    <form action="/portfolio/<%= current_user.portfolio.id %>/<%= current_user.portfolio.sneakers.ids%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+  Manufacturer:<br>
+  <input type="text" name="manufacturer"><br><br>
+  Model:<br>
+  <input type="text" name="model"><br><br>
+  US Size:<br>
+  <input type="text" name="size_us"><br><br>
+  Colorway:<br>
+  <input type="text" name="colorway"><br><br>
+  Condition:<br>
+  <input type="text" name="condition"><br><br>
+  Estimated Value:<br>
+  <input type="text" name="est_value"><br><br>
+  Notes:<br>
+  <input type="text" name="notes"><br><br>
+  <button type="submit">Submit Changes</button>
+  
+  <form method="POST" action="/portfolio/<%= current_user.portfolio.id %>/<%= current_user.portfolio.sneakers.ids %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
+</form>
     
   </body>
   
