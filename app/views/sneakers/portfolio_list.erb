@@ -41,7 +41,7 @@
 
     <% current_user.portfolio.sneakers.each do |sneaker| %>
   <a href="/portfolio/sneakers/<%= current_user.portfolio.id %>/edit">
-<tr>
+<tr onclick="window.location='/portfolio/sneakers/<%= current_user.portfolio.id %>/edit'">
    <td><%= sneaker.manufacturer %></td>
    <td><%= sneaker.size_us %></td>
    <td><%= sneaker.model %></td>
