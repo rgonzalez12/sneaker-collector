@@ -28,7 +28,7 @@ class PortfolioController < ApplicationController
   
   post '/portfolio/:id/:sneaker_id' do
     @errors = []
-    sneaker = Sneaker.new(manufacturer: params[:manufacturer], size_us: params[:size_us], model: params[:model], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
+    sneaker = Sneaker.create(manufacturer: params[:manufacturer], size_us: params[:size_us], model: params[:model], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
     portfolio = Portfolio.find(params[:id])
     portfolio.sneakers << sneaker
     if portfolio.save
@@ -40,12 +40,15 @@ class PortfolioController < ApplicationController
 
   get '/portfolio/sneakers/:id/edit' do
     @sneaker = Sneaker.find(params[:id])
-    #if logged_in? && current_user == @sneaker.user
-    erb :'/sneakers/edit_sneaker'
+    #if logged_in? && current_user.id == @user.portfolios
+     erb :'/sneakers/edit_sneaker'
+   #else
+     #redirect '/portfolio/#{current_user.portfolio.id}'
+  # end
   end
 
   patch '/portfolio/sneakers/:id/edit' do
-   
+  
   end
 
   delete '/portfolio/sneakers/:id/delete' do
