@@ -39,6 +39,8 @@ class PortfolioController < ApplicationController
   end
 
   get '/portfolio/sneakers/:id/edit' do
+    @sneaker = Sneaker.find(params[:id])
+    #if logged_in? && current_user == @sneaker.user
     erb :'/sneakers/edit_sneaker'
   end
 
