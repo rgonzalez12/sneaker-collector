@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.text :email_address
       t.string :password_digest
-      t.integer :portfolio_id
+      t.timestamps
     end
   end
 end

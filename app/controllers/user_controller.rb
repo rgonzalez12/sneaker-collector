@@ -31,6 +31,23 @@ class UserController < ApplicationController
     end
   end
   
+  get '/portfolio/:id' do
+    if User.find(params[:id]).user_id == current_user.id
+      params[:id] == current_user.id
+      erb :'/sneakers/portfolio_list'
+    else 
+      redirect "/portfolio/#{current_user.portfolio.id}"
+    end
+  end
+  
+  get '/leaderboard' do
+    if !logged_in?
+      redirect '/login'
+    else
+      erb :'/sneakers/leaderboard'
+    end
+  end
+  
   get '/login' do
     if !logged_in?
      erb :'/users/login'

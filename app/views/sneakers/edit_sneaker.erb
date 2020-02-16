@@ -28,7 +28,7 @@
   
  
 </form>
- <form method="POST" action="/portfolio/<%= current_user.portfolio.id %>/<%= current_user.portfolio.sneakers.ids %>">
+ <form method="POST" action="/portfolio/sneakers/<%= @sneaker.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
 </form>

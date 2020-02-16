@@ -5,8 +5,10 @@ class CreateSneakers < ActiveRecord::Migration[5.2]
       t.string :size_us
       t.string :model
       t.string :colorway
+      t.string :notes
+      t.string :condition
       t.integer :est_value
-      t.integer :portfolio_id
+      t.integer :user_id
       t.timestamps
     end
   end
