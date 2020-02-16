@@ -31,12 +31,11 @@ class UserController < ApplicationController
     end
   end
   
-  get '/portfolio/:id' do
-    if User.find(params[:id]).user_id == current_user.id
-      params[:id] == current_user.id
-      erb :'/sneakers/portfolio_list'
+  get '/portfolio/:id' do #users show action
+    if User.find_by(params[:id]).id == current_user.id
+      erb :'/users/portfolio_list'
     else 
-      redirect "/portfolio/#{current_user.portfolio.id}"
+      redirect "/portfolio/#{current_user.id}"
     end
   end
   

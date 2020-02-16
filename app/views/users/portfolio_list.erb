@@ -39,7 +39,7 @@
       <th>Notes</th>
     </tr>
 
-    <% current_user.portfolio.sneakers.each do |sneaker| %>
+    <% current_user.sneakers.each do |sneaker| %>
   <a href="/portfolio/sneakers/<%= current_user.id %>/edit">
 <tr onclick="window.location='/portfolio/sneakers/<%= sneaker.id %>/edit'">
    <td><%= sneaker.manufacturer %></td>
@@ -54,7 +54,7 @@
 <% end %>
     </table>
 
-    <form action="/portfolio/<%= current_user.portfolio.id %>/new_sneaker">
+    <form action="/portfolio/<%= current_user.id %>/new_sneaker">
     <input type="submit" value="Add Sneaker"/>
 </form>
     
