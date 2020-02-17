@@ -18,20 +18,38 @@ class SneakerController < ApplicationController
   end
 
   get '/portfolio/sneakers/:id/edit' do
-    @sneaker = Sneaker.find(params[:id])
-    #if logged_in? && current_user.id == @user.portfolios
+    @sneaker = Sneaker.find_by_id(params[:id])
+    if logged_in? && current_user == @sneaker.user
      erb :'/sneakers/edit_sneaker'
-   #else
-     #redirect '/portfolio/#{current_user.portfolio.id}'
-  # end
+   else
+     redirect "/portfolio/#{current_user.portfolio.id}"
+   end
   end
 
   patch '/portfolio/sneakers/:id' do
+    if logged_in?
+      if params[:manufacturer] == "" || params[:model] == "" || params[:size_us] == "" || params[:colorway] == "" || params[:est_value] == "" || params[:condition] == "" || params[:notes] == ""
+        redirect to "/shows/#{params[:id]}/edit"
+      else
+        @show = Show.find_by_id(params[:id])
+          if @show && @show.user == current_user
+            if @show.update(title: params[:title], rating: params[:rating], streaming_service: params[:streaming_service], review: params[:review])
+              redirect to "/shows/#{@show.id}"
+            else
+              redirect to "/shows/#{@shows.id}/edit"
+            end
+          else
+            redirect to '/shows'
+          end
+        end
+      else
+        redirect to '/login'
+      end
   
   end
 
-  delete '/portfolio/sneakers/:id' do
-    @sneaker = Sneaker.find_by(id: params[:id])
+  delete '/portfolio/sneakers/:id/delete' do
+    @sneaker = Sneaker.find_by_id(params[:id])
     if logged_in?
       if @sneaker && @sneaker.user == current_user
          @sneaker.delete
