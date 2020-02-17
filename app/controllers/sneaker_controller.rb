@@ -9,8 +9,8 @@ class SneakerController < ApplicationController
   end
   
   post '/sneakers' do
-    sneaker = User.sneakers.build(params)
-    if sneaker.save
+    @sneaker = current_user.sneakers.build(manufacturer: params[:manufacturer], model: params[:model], size_us: params[:size_us], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
+    if @sneaker.save
       redirect "/portfolio/#{current_user.id}"
     else
       redirect '/login'
