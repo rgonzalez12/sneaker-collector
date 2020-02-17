@@ -32,7 +32,7 @@ class UserController < ApplicationController
   end
   
   get '/portfolio/:id' do #users show action
-    if User.find_by(params[:id]).id == current_user.id
+    if User.find_by_id(params[:id]) == current_user
       erb :'/users/portfolio_list'
     else 
       redirect "/portfolio/#{current_user.id}"
