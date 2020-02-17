@@ -1,7 +1,7 @@
 @media screen {
   /* --- Reset Styles --- */
   * {
-    list-style: none;
+   /* list-style: none; */
     margin: 0;
     padding: 0;
   }
@@ -21,14 +21,18 @@
   }
 
   .wrapper {
-    background: #fff;
+    background: rgba(255, 255, 255, .8);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 960px;
-    padding: 2.25%; /* 18px / 800px */
-    width: 85%;
+    width: 50%;
+    border: 3px black;
+    padding: 10px;
+    
+    /*padding: 2.25%; /* 18px / 800px */
+    /*width: 85%; */
   }
 
   h1 {
@@ -58,7 +62,7 @@
 
   .content {
     float: left;
-    width: 60%; /* 480px / 800px */
+    width: 60%;
   }
 
   .sidebar {

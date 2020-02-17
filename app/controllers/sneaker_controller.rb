@@ -45,7 +45,6 @@ class SneakerController < ApplicationController
       else
         redirect to '/login'
       end
-  
   end
 
   delete '/portfolio/sneakers/:id/delete' do

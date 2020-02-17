@@ -40,6 +40,7 @@ class UserController < ApplicationController
   end
   
   get '/leaderboard' do
+    @user = User.find_by_id(params[:id])
     if !logged_in?
       redirect '/login'
     else

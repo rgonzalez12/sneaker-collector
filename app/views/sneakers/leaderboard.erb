@@ -2,12 +2,12 @@
 <html>
   
   <head>
-    <title>Sneaker Collector - Leaderboard</title>
+    <title>Sneaker Collector - User Portfolios</title>
   </head>
   
   <body>
     
-    <h1>Leaderboard</h1>
+    <h1>User Portfolios</h1>
     
   <div class="nav">
   <a class="active" href="/user/home/<%=current_user.id%>">Home</a><br><br>
@@ -30,18 +30,17 @@
       }
       </style>
         <th>Name</th>
-        <th>Rank</th>
         <th>Total Shoes</th>
         <th>Portfolio Value</th>
       <tr>
-    <!-- #all of the sneaker id's created with info according to table -->
-      </tr> 
+        <% User.all.each do |user| %>
+        <td><%= user.first_name %></td>
+        <td><%= user.sneakers.length %></td>
+        <td>$<%= user.sneakers.sum {|sneaker| sneaker.est_value} %></td>
+      </tr>
+      <% end %>
     </table>
-    
-    
-    
-    
-    
+  
   </body>
   
 </html>
