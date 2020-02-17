@@ -9,9 +9,17 @@ class SneakerController < ApplicationController
   end
   
   post '/sneakers' do
-    @sneaker = current_user.sneakers.build(manufacturer: params[:manufacturer], model: params[:model], size_us: params[:size_us], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
-    if @sneaker.save
-      redirect "/portfolio/#{current_user.id}"
+    if logged_in?
+      if params[:manufacturer] == "" || params[:model] == "" || params[:size_us] == "" || params[:colorway] == "" || params[:est_value] == "" || params[:condition] == "" || params[:notes] == ""
+      redirect '/sneakers/new'
+      else
+       @sneaker = current_user.sneakers.build(manufacturer: params[:manufacturer], model: params[:model], size_us: params[:size_us], colorway: params[:colorway], condition: params[:condition], est_value: params[:est_value], notes: params[:notes])
+        if @sneaker.save
+          redirect "/portfolio/#{current_user.id}"
+        else
+          redirect to '/sneakers/new'
+        end
+      end
     else
       redirect '/login'
     end
