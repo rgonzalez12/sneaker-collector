@@ -17,7 +17,7 @@ class SneakerController < ApplicationController
     end
   end
 
-  get '/sneakers/:id/edit' do
+  get '/portfolio/sneakers/:id/edit' do
     @sneaker = Sneaker.find(params[:id])
     #if logged_in? && current_user.id == @user.portfolios
      erb :'/sneakers/edit_sneaker'
@@ -26,17 +26,16 @@ class SneakerController < ApplicationController
   # end
   end
 
-  patch '/sneakers/:id' do
+  patch '/portfolio/sneakers/:id' do
   
   end
 
-  delete '/sneakers/:id' do
+  delete '/portfolio/sneakers/:id' do
     @sneaker = Sneaker.find_by(id: params[:id])
     if logged_in?
-      binding.pry
       if @sneaker && @sneaker.user == current_user
          @sneaker.delete
-        redirect to "/portfolio/#{current_user.portfolio.id}"
+        redirect to "/portfolio/#{current_user.id}"
       else
         redirect to '/login'
       end

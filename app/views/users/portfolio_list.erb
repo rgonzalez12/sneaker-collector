@@ -40,8 +40,8 @@
     </tr>
 
     <% current_user.sneakers.each do |sneaker| %>
-  <a href="/portfolio/sneakers/<%= current_user.id %>/edit">
-<tr onclick="window.location='/portfolio/sneakers/<%= sneaker.id %>/edit'">
+  <a href="/portfolio/sneakers/<%= @sneaker.id %>/edit">
+<tr onclick="window.location='/portfolio/sneakers/<%= @sneaker.id %>/edit'">
    <td><%= sneaker.manufacturer %></td>
    <td><%= sneaker.size_us %></td>
    <td><%= sneaker.model %></td>

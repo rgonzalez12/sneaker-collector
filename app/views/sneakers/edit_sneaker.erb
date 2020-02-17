@@ -8,7 +8,7 @@
   <body>
     <h1>Edit/Delete Sneaker</h1>
     
-    <form action="/portfolio/<%= current_user.portfolio.id %>/<%= current_user.portfolio.sneakers.ids%>" method="POST">
+    <form action="/portfolio/sneakers/<%= @sneaker.id%>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
   Manufacturer:<br>
   <input value=<%= @sneaker.manufacturer %> type="text" name="manufacturer"><br><br>
