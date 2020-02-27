@@ -1,11 +1,8 @@
 class SneakerController < ApplicationController
   
   get '/sneakers/new' do
-    if logged_in?
-      erb :'/sneakers/create_sneaker'
-    else
-      redirect "/login"
-    end
+    redirect_if_not_logged_in
+    erb :'/sneakers/create_sneaker'
   end
   
   post '/sneakers' do
